@@ -15,21 +15,22 @@ const MemberList = props => {
 
   return (
     <div>
-      <h1>The Overlord's Blades</h1>
-      <div>
+      <h1 inverse style={{color: "black", background: "rgba(0, 0, 0, 0.3)"}}>The Overlord's Blades</h1>
+      <div className="blade-card-cont">
+        <div className="blade-card">
         {props.freeCompanyMembers.map(freeCompanyMembers => (
-          <Card key={freeCompanyMembers.ID}>
+          <Card key={freeCompanyMembers.ID} inverse body style={{backgroundImage:"linear-gradient(darkgray, black)"}}>
             <CardImg top width="100%" src={freeCompanyMembers.Avatar} alt="Card image cap" />
             <CardBody>
               <CardTitle>{freeCompanyMembers.Name}</CardTitle>
               <CardSubtitle>Rank: {freeCompanyMembers.Rank}</CardSubtitle>
             </CardBody>
           </Card>
-          // <p key={freeCompanyMembers.ID}>{freeCompanyMembers.Name}</p>
         ))}
+        </div>
       </div>
       {props.error && <p className="error">{props.error}</p>}
-      <button onClick={fetchMembers}>Display Blades</button>
+      <Button onClick={fetchMembers}>Unsheathe Blades</Button>
     </div>
   );
 };

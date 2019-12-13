@@ -1,10 +1,26 @@
+.html {
+  background-image: linear-gradient(to right, red , black);
+}
+
 .App {
   text-align: center;
+  background-image: linear-gradient(to right, red , black);
 }
 
 .App-logo {
   height: 40vmin;
   pointer-events: none;
+}
+
+.blade-card {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  margin: 2% 0;
+}
+
+.blade-card-cont {
+  display: flex;
 }
 
 @media (prefers-reduced-motion: no-preference) {
