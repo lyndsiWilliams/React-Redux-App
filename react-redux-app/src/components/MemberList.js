@@ -6,6 +6,7 @@ import {
 } from 'reactstrap';
 
 import { getMembers } from '../actions/xivActions';
+import map from '../img/ffxivmap.png';
 
 const MemberList = props => {
   const fetchMembers = e => {
@@ -15,11 +16,12 @@ const MemberList = props => {
 
   return (
     <div>
-      <h1 inverse style={{color: "black", background: "rgba(0, 0, 0, 0.3)"}}>The Overlord's Blades</h1>
+      {/* <h1 inverse style={{color: "black", background: "rgba(0, 0, 0, 0.3)"}}>The Overlord's Blades</h1> */}
+      <img src={map} className="map-img" />
       <div className="blade-card-cont">
         <div className="blade-card">
         {props.freeCompanyMembers.map(freeCompanyMembers => (
-          <Card key={freeCompanyMembers.ID} inverse body style={{backgroundImage:"linear-gradient(darkgray, black)"}}>
+          <Card key={freeCompanyMembers.ID}>
             <CardImg top width="100%" src={freeCompanyMembers.Avatar} alt="Card image cap" />
             <CardBody>
               <CardTitle>{freeCompanyMembers.Name}</CardTitle>
@@ -30,7 +32,7 @@ const MemberList = props => {
         </div>
       </div>
       {props.error && <p className="error">{props.error}</p>}
-      <Button onClick={fetchMembers}>Unsheathe Blades</Button>
+      <Button inverse style={{color: "black", border: "1px solid black"}} onClick={fetchMembers}>Unsheathe Blades</Button>
     </div>
   );
 };
