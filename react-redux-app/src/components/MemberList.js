@@ -16,7 +16,6 @@ const MemberList = props => {
 
   return (
     <div>
-      {/* <h1 inverse style={{color: "black", background: "rgba(0, 0, 0, 0.3)"}}>The Overlord's Blades</h1> */}
       <img src={map} className="map-img" />
       <div className="blade-card-cont">
         <div className="blade-card">
