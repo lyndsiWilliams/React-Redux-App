@@ -1,44 +1,43 @@
+// React
 import React from 'react';
 import { connect } from 'react-redux';
+// Actions
+import { getMembers } from '../actions';
+// Styling
 import {
-  Card, CardImg, CardText, CardBody,
+  Card, CardImg, CardBody,
   CardTitle, CardSubtitle, Button
 } from 'reactstrap';
 
-import { getMembers } from '../actions/xivActions';
-import map from '../img/ffxivmap.png';
 
 const MemberList = props => {
-  const fetchMembers = e => {
-    e.preventDefault();
-    props.getMembers();
-  };
+  console.log('MEMBERLIST PROPS', props);
 
   return (
     <div>
-      <img src={map} className="map-img" />
+      {/* Blade Cards */}
+      <Button style={{color: "black", border: "1px solid black"}} onClick={props.getMembers}>Unsheathe Blades</Button>
+      {props.error && <p className="error">{props.error}</p>}
       <div className="blade-card-cont">
         <div className="blade-card">
-        {props.freeCompanyMembers.map(freeCompanyMembers => (
-          <Card key={freeCompanyMembers.ID}>
-            <CardImg top width="100%" src={freeCompanyMembers.Avatar} alt="Card image cap" />
-            <CardBody>
-              <CardTitle>{freeCompanyMembers.Name}</CardTitle>
-              <CardSubtitle>Rank: {freeCompanyMembers.Rank}</CardSubtitle>
-            </CardBody>
-          </Card>
-        ))}
+          {props.freeCompanyMembers && !props.isFetching && props.freeCompanyMembers.map(freeCompanyMembers => (
+            <Card key={freeCompanyMembers.ID}>
+              <CardImg top width="100%" src={freeCompanyMembers.Avatar} alt="Card image cap" />
+              <CardBody>
+                <CardTitle>{freeCompanyMembers.Name}</CardTitle>
+                <CardSubtitle>Rank: {freeCompanyMembers.Rank}</CardSubtitle>
+              </CardBody>
+            </Card>
+          ))}
         </div>
       </div>
-      {props.error && <p className="error">{props.error}</p>}
-      <Button inverse style={{color: "black", border: "1px solid black"}} onClick={fetchMembers}>Unsheathe Blades</Button>
     </div>
   );
 };
 
 const mapStateToProps = state => ({
-  freeCompanyMembers: state.freeCompanyMembers,
-  error: state.error
+  freeCompanyMembers: state.xivReducer.freeCompanyMembers,
+  error: state.xivReducer.error
 });
 
 export default connect (

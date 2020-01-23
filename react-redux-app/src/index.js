@@ -1,18 +1,25 @@
+// React
 import React from 'react';
 import ReactDOM from 'react-dom';
+// Store
 import { createStore, applyMiddleware } from 'redux';
 import { Provider } from 'react-redux';
 import thunk from 'redux-thunk';
-import 'bootstrap/dist/css/bootstrap.min.css';
-
+import logger from 'redux-logger';
 // Reducer
-import xivReducer from './reducers/xivReducer';
-
-import './index.css';
+import { rootReducer } from "./reducers";
+import { xivReducer } from './reducers/xivReducer';
+// Component
 import App from './App';
+// Styling
+import 'bootstrap/dist/css/bootstrap.min.css';
+import './index.css';
+// Other
 import * as serviceWorker from './serviceWorker';
 
-const store = createStore(xivReducer, applyMiddleware(thunk));
+
+const store = createStore(rootReducer, applyMiddleware(thunk, logger));
+console.log(store);
 
 ReactDOM.render(
   <Provider store={store}>

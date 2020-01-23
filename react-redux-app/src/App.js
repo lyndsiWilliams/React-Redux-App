@@ -1,27 +1,26 @@
+// React
 import React from 'react';
-import { Jumbotron, Button } from 'reactstrap';
+import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
+// Styling
 import './App.css';
-
-// Component
+// Components
+import { Home } from './components/Home';
 import MemberList from './components/MemberList';
+import SongList from './components/SongList';
+
 
 function App() {
-  const link = () => {
-    window.location.href='https://discord.gg/p3fVhSM';
-  };
-
   return (
     <div className="App">
-      <Jumbotron inverse style={{color: "black", background: "rgba(0, 0, 0, 0.3)"}}>
-        <h1 className="display-3">The Overlord's Blades</h1>
-        <hr className="my-2" />
-        <p className="lead">
-          <Button inverse style={{color: "black", border: "1px solid black"}} onClick={link}>Click to join our Discord!</Button>
-        </p>
-      </Jumbotron>
-      <MemberList />
+      <Router>
+        <Switch>
+          <Route exact path="/" component={Home} />
+          <Route path="/memberList" component={MemberList} />
+          <Route path="/songList" component={SongList} />
+        </Switch>
+      </Router>
     </div>
   );
-}
+};
 
 export default App;
