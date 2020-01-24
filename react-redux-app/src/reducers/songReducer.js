@@ -1,37 +1,37 @@
 import {
-  FETCH_MEMBERS_START,
-  FETCH_MEMBERS_SUCCESS,
-  FETCH_MEMBERS_FAILURE
+  FETCH_SONGS_START,
+  FETCH_SONGS_SUCCESS,
+  FETCH_SONGS_FAILURE
 } from '../actions';
 
 const initialState = {
-  freeCompanyMembers: [],
+  songs: [],
   error: "",
   isFetching: false
 };
 
-export function xivReducer(state=initialState, action) {
+export function songReducer(state=initialState, action) {
   console.log(state);
   switch (action.type) {
-    case FETCH_MEMBERS_START:
+    case FETCH_SONGS_START:
       return {
         ...state,
         error: "",
         isFetching: true
       };
-    case FETCH_MEMBERS_SUCCESS:
+    case FETCH_SONGS_SUCCESS:
       return {
         ...state,
         error: "",
         isFetching: false,
-        freeCompanyMembers: action.payload
+        songs: action.payload
       };
-    case FETCH_MEMBERS_FAILURE:
+    case FETCH_SONGS_FAILURE:
       return {
         ...state,
         error: action.payload,
         isFetching: false
-      };
+      }
     default:
       return state;
   };

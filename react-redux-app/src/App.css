@@ -1,4 +1,4 @@
-.html {
+body {
   background-image: linear-gradient(to right, red , black);
 }
 
@@ -43,6 +43,16 @@
   display: flex;
   align-items: center;
   padding: 0 5%;
+}
+
+.song-list {
+  display: flex;
+  flex-wrap: wrap;
+  width: max-content;
+}
+
+.song-list-cont {
+  display: flex;
 }
 
 @media (prefers-reduced-motion: no-preference) {
