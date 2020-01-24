@@ -5,6 +5,7 @@ import { Jumbotron, Button } from 'reactstrap';
 import { Nav, NavItem, NavLink } from 'reactstrap';
 
 const Navbar = () => {
+  
   const link = () => {
     window.location.href='https://discord.gg/p3fVhSM';
   };
