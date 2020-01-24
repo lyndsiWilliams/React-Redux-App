@@ -17,14 +17,16 @@ const SongList = props => {
       {/* Orchestrion List */}
       <Button inverse style={{color: "black", border: "1px solid black"}} onClick={props.getSongs}>Unfurl Orchestrion Roll</Button>
       {props.error && <p className="error">{props.error}</p>}
-      <div className="song-list">
-        {props.songs && !props.isFetching && props.songs.map(songs => (
-          <Card key={songs.ID}>
-            <CardBody>
-              <CardTitle>{songs.Name}</CardTitle>
-            </CardBody>
-          </Card>
-        ))}
+      <div className="song-list-cont">
+        <div className="song-list">
+          {props.songs && !props.isFetching && props.songs.map(songs => (
+            <Card key={songs.ID} style={{borderRadius: "10px", border: "5px solid black"}}>
+              <CardBody>
+                <CardTitle>{songs.Name}</CardTitle>
+              </CardBody>
+            </Card>
+          ))}
+        </div>
       </div>
     </div>
   );

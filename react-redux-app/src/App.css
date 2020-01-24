@@ -45,6 +45,16 @@ body {
   padding: 0 5%;
 }
 
+.song-list {
+  display: flex;
+  flex-wrap: wrap;
+  width: max-content;
+}
+
+.song-list-cont {
+  display: flex;
+}
+
 @media (prefers-reduced-motion: no-preference) {
   .App-logo {
     animation: App-logo-spin infinite 20s linear;

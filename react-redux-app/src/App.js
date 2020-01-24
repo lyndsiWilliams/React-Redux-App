@@ -4,6 +4,7 @@ import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
 // Styling
 import './App.css';
 // Components
+import NavBar from './components/Navbar';
 import { Home } from './components/Home';
 import MemberList from './components/MemberList';
 import SongList from './components/SongList';
@@ -12,6 +13,7 @@ import SongList from './components/SongList';
 function App() {
   return (
     <div className="App">
+      <NavBar />
       <Router>
         <Switch>
           <Route exact path="/" component={Home} />
